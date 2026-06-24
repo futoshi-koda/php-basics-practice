@@ -3,6 +3,11 @@
     $price = 80000;
     $quantity = 2;
     $tax_rate = 0.1;
+    $sub_total = $price * $quantity;
+    $tax_amount = $sub_total * $tax_rate;
+    $total = $sub_total + $tax_amount;
+
+
 ?>
 
 <p>    
@@ -19,16 +24,16 @@
     ?>
 <br>
     <?php echo "小計:";
-          echo number_format($price*$quantity,0, '.', ',')."円";
+          echo number_format($sub_total,0, '.', ',')."円";
     ?>
 <br>
     <?php echo "消費税(10%):";
-          echo number_format($price*$quantity*$tax_rate,0,'.', ',')."円";
+          echo number_format($tax_amount,0,'.', ',')."円";
     ?>
 <br>
 <strong>
     <?php echo  "合計金額:";
-          echo  number_format( $price*$quantity+$price*$quantity*$tax_rate,0,'.', ',')."円";
+          echo  number_format( $total,0,'.', ',')."円";
     ?>
 </strong>
 </p>
